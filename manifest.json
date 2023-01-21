@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "xiv_speed",
+  "version": "1.2",
+  "description": "FFLogs speed gamer buttons for shortcutting useful features in a log",
+  "icons": {
+    "128": "icons/fflogs_large.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.fflogs.com/reports/*"
+      ],
+      "js": [
+        "xiv_speed.js"
+      ],
+      "css": [
+        "xiv_speed.css"
+      ]
+    }
+  ]
+}

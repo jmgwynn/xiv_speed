@@ -1,0 +1,16 @@
+.speedgeButton {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    background-size: contain;
+    float: right;
+}
+
+.speedgeBar {
+    height: 30px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: none;
+}
