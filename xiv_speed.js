@@ -15,7 +15,7 @@ function targetability() {
     window.location.replace(safeSlice('&') + '&type=summary&pins=2%24Off%24%23244F4B%24expression%24type%3D"targetabilityupdate"&view=events');
 }
 var targetButton = document.createElement("button");
-targetButton.style.backgroundImage = "url('https://xivapi.com/i/002000/002587.png')";
+targetButton.style.backgroundImage = "url('https://xivapi.com/i/000000/000101.png')";
 targetButton.classList.add('speedgeButton');
 targetButton.addEventListener("click", targetability);
 
@@ -27,6 +27,28 @@ var lbButton = document.createElement("button");
 lbButton.style.backgroundImage = "url('https://xivapi.com/i/000000/000103.png')";
 lbButton.classList.add('speedgeButton');
 lbButton.addEventListener("click", limitBreak);
+
+
+function timeBetween() {
+    $(".events-table thead th").first().after("<th colspan='1' class='ui-state-default sorting_disabled'>Diff</th>");
+
+    var last = false;
+
+    $(".main-table-number").each(function() {
+        if (!last) {
+            $(this).after("<td>-</td>");
+            last = moment($(this).text(), "mm:ss.SSS");
+        } else {
+            var current = moment($(this).text(), "mm:ss.SSS");
+            $(this).after("<td style='width:2em'>" + (current.diff(last) / 1000) + "</td>");
+            last = current;
+        }
+    });
+}
+var timeButton = document.createElement("button");
+timeButton.style.backgroundImage = "url('https://xivapi.com/i/000000/000070.png')";
+timeButton.classList.add('speedgeButton');
+timeButton.addEventListener("click", timeBetween);
 
 
 function XIVA() {
@@ -42,6 +64,7 @@ xivaButton.addEventListener("click", XIVA);
 var bar = document.createElement("DIV");
 bar.classList.add('speedgeBar');
 bar.appendChild(xivaButton);
+bar.appendChild(timeButton);
 bar.appendChild(lbButton);
 bar.appendChild(targetButton);
 bar.appendChild(resetButton);
