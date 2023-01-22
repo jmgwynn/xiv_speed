@@ -30,20 +30,22 @@ lbButton.addEventListener("click", limitBreak);
 
 
 function timeBetween() {
-    $(".events-table thead th").first().after("<th colspan='1' class='ui-state-default sorting_disabled'>Diff</th>");
+    if(window.location.href.indexOf('events') > -1){
+        $(".events-table thead th").first().after("<th colspan='1' class='ui-state-default sorting_disabled'>Diff</th>");
 
-    var last = false;
+        var last = false;
 
-    $(".main-table-number").each(function() {
-        if (!last) {
-            $(this).after("<td>-</td>");
-            last = moment($(this).text(), "mm:ss.SSS");
-        } else {
-            var current = moment($(this).text(), "mm:ss.SSS");
-            $(this).after("<td style='width:2em'>" + (current.diff(last) / 1000) + "</td>");
-            last = current;
-        }
-    });
+        $(".main-table-number").each(function() {
+            if (!last) {
+                $(this).after("<td>-</td>");
+                last = moment($(this).text(), "mm:ss.SSS");
+            } else {
+                var current = moment($(this).text(), "mm:ss.SSS");
+                $(this).after("<td style='width:2em'>" + (current.diff(last) / 1000) + "</td>");
+                last = current;
+            }
+        });
+    }
 }
 var timeButton = document.createElement("button");
 timeButton.style.backgroundImage = "url('https://xivapi.com/i/000000/000070.png')";
