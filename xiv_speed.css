@@ -5,6 +5,7 @@
     border: none;
     background-size: contain;
     float: right;
+    pointer-events: auto;
 }
 
 .speedgeBar {
@@ -13,4 +14,5 @@
     bottom: 0px;
     width: 100%;
     background: none;
+    pointer-events: none;
 }
